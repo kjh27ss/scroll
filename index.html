@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/css/media.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">star</div>
+        <nav>
+            <div class="nav-links">
+                <button class="close-btn">✕</button>
+                    <ul>
+                        <li><a href="#"></a>Shop All</li>
+                        <li><a href="#"></a>About</li>
+                        <li><a href="#"></a>Notice</li>
+                    </ul>
+            </div>
+            <div class="overlay"></div>
+        </nav>
+        <div class="user-icon">
+            <img src="images/user.png" alt="User">
+            <img src="images/cart.png" alt="Search">
+        </div>
+        <div class="menu-icon">
+            <img src="images/menu.png" alt="Menu">
+        </div>
+    </header>
+    <div class="wrap">
+        <div class="container">
+            <div class="content-box">
+                <div class="con-img">
+                    <img src="/images/floder.png" alt="chat-img">
+                </div>
+                <div class="con-text">
+                    <h2>Saving the</h2>
+                    <h3>무슨 내용을 넣어야할까요 <br> 아이디어가 필요하다!</h3>
+                    <p>지속 가능한 내일을 위한 아이디어를 기다립니다. <br>
+                        지속 가능한 내일을 위한 아이디어를 기다립니다. 지속 가능한 내일을 위한 아이디어를 기다립니다. 지속 가능한 내일을 위한 아이디어를 기다립니다.
+                    </p>
+                    <button>자세히보기 →</button>
+                </div>
+            </div>
+        </div>
+        <div class="container scrollable-container">
+            <div class="listbox scrollable-content">
+                <h1>어쩌고저쩌고 있다면<br>지금 바로 도전해보세요!</h1>
+                <ul>
+                    <li>
+                        <div class="list-text">
+                            <h2>STEP1.</h2>
+                            <h1>팀 회원가입</h1>
+                            <p>회원가입을 해주세요.<br>회원가입을 해주세요.</p>
+                        </div>
+                        <div class="list-img">
+                            <img src="/images/floder.png" alt="">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list-text">
+                            <h2>STEP1.</h2>
+                            <h1>팀 회원가입</h1>
+                            <p>회원가입을 해주세요.<br>회원가입을 해주세요.</p>
+                        </div>
+                        <div class="list-img">
+                            <img src="/images/floder.png" alt="">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list-text">
+                            <h2>STEP1.</h2>
+                            <h1>팀 회원가입</h1>
+                            <p>회원가입을 해주세요.<br>회원가입을 해주세요.</p>
+                        </div>
+                        <div class="list-img">
+                            <img src="/images/floder.png" alt="">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </div>
+            <div class="container">
+                <div class="last-box">
+                    <h1>dkdkdkdkdkdk</h1>
+                    <h2><span>지속 가능한 내일,</span> <br> 만들어갑니다.</h2>
+                    <div class="last-imgbox">
+                        <ul>
+                            <li><img src="/images/floder.png" alt=""></li>
+                            <li><img src="/images/floder.png" alt=""></li>
+                            <li><img src="/images/floder.png" alt=""></li>
+                            <li><img src="/images/floder.png" alt=""></li>
+                            <li><img src="/images/floder.png" alt=""></li>
+                            <li><img src="/images/floder.png" alt=""></li>
+                            <li><img src="/images/floder.png" alt=""></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            footer
+        </footer>
+    </div>
+</body>
+<script>
+    const wrap = document.getElementsByClassName('wrap')[0] // 보일 영역
+    const container = document.getElementsByClassName('container');
+    let page = 0; // 영역 포지션
+    const lastPage = container.length - 1; // 마지막 페이지
+
+    window.addEventListener('wheel', (e) => {
+    const scrollableBox = document.querySelector('.scrollable-content');
+    const isScrollable = scrollableBox.scrollHeight > scrollableBox.clientHeight;
+    const isMouseOverScrollable =
+        e.target.closest('.scrollable-content') !== null;
+
+    if (isMouseOverScrollable && isScrollable) {
+        // 내부 스크롤이 가능하면 wrap 이동 막기
+        return;
+    }
+
+    e.preventDefault();
+
+    if (e.deltaY > 0) {
+        page++;
+    } else if (e.deltaY < 0) {
+        page--;
+    }
+
+    if (page < 0) page = 0;
+    if (page > lastPage) page = lastPage;
+
+    wrap.style.top = page * -100 + 'vh';
+}, { passive: false });
+</script>
+</html>
