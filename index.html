@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/media.css">
     <title>Document</title>
 </head>
@@ -36,9 +36,9 @@
                     <img src="/images/floder.png" alt="chat-img">
                 </div>
                 <div class="con-text">
-                    <h2>Saving the</h2>
-                    <h3>무슨 내용을 넣어야할까요 <br> 아이디어가 필요하다!</h3>
-                    <p>지속 가능한 내일을 위한 아이디어를 기다립니다. <br>
+                    <h2>Saving the fffff</h2>
+                    <h3>무슨 내용을 넣어야하나 아이디어가 필요하다!</h3>
+                    <p>지속 가능한 내일을 위한 아이디어를 기다립니다.
                         지속 가능한 내일을 위한 아이디어를 기다립니다. 지속 가능한 내일을 위한 아이디어를 기다립니다. 지속 가능한 내일을 위한 아이디어를 기다립니다.
                     </p>
                     <button>자세히보기 →</button>
@@ -86,7 +86,8 @@
                 <div class="last-box">
                     <h1>dkdkdkdkdkdk</h1>
                     <h2><span>지속 가능한 내일,</span> <br> 만들어갑니다.</h2>
-                    <div class="last-imgbox">
+                <div class="roller-box">
+                      <div class="roller-list">
                         <ul>
                             <li><img src="/images/floder.png" alt=""></li>
                             <li><img src="/images/floder.png" alt=""></li>
@@ -95,22 +96,39 @@
                             <li><img src="/images/floder.png" alt=""></li>
                             <li><img src="/images/floder.png" alt=""></li>
                             <li><img src="/images/floder.png" alt=""></li>
+                            <li><img src="/images/floder.png" alt=""></li>
                         </ul>
-                    </div>
+                      </div>
                 </div>
             </div>
         </div>
         <footer>
-            footer
+            
         </footer>
     </div>
 </body>
-<script>
+<script type="text/javascript">
     const wrap = document.getElementsByClassName('wrap')[0] // 보일 영역
     const container = document.getElementsByClassName('container');
     let page = 0; // 영역 포지션
     const lastPage = container.length - 1; // 마지막 페이지
 
+    // rolling
+    let roller = document.querySelector('.roller-list');
+    roller.id = 'roller1'; // 아이디 부여
+
+    let clone = roller.cloneNode(true); // 노드복제
+    clone.id = 'roller2';
+    document.querySelector('.roller-box').appendChild(clone);
+
+    document.querySelector('#roller1').style.left = '0px';
+    document.querySelector('#roller2').style.left = document.querySelector('.roller-list ul').offsetWidth + 'px';
+    // offsetWidth : 요소의 크기 확인(margin 제외, padding, border 계산한 값)
+
+    roller.classList.add('original'); // roller-list original
+    clone.classList.add('clone'); // roller-list clone
+
+    // scroll
     window.addEventListener('wheel', (e) => {
     const scrollableBox = document.querySelector('.scrollable-content');
     const isScrollable = scrollableBox.scrollHeight > scrollableBox.clientHeight;
@@ -135,5 +153,6 @@
 
     wrap.style.top = page * -100 + 'vh';
 }, { passive: false });
+
 </script>
 </html>

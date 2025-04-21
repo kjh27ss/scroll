@@ -1,4 +1,71 @@
 /* 모바일 */
 @media screen and (max-width:768px) {
+    .content-box{
+        flex-direction: column;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    .con-img img{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .con-text h2, .con-text h3{
+        font-size: 2rem;
+    }
+    .con-text p{
+        font-size: 1.1rem;
+        margin: 30px 0 30px 0;
+    }
+    .con-text button{
+        margin-bottom: 30px;
+    }
+
+    /**************** list-box *****************/
+
+    .scrollable-container{
+        height: auto;
+        padding: 40px 0;
+    }
+    .scrollable-content{
+        height: auto;
+        padding: 20px 10px;
+    }
+    .listbox li{
+        flex-direction: column;
+        height: auto;
+
+    }
+    .list-text{
+        text-align: left;
+    }
+    .list-text h1{
+        font-size: 1.5rem;
+
+    }
+    .list-text h2{
+        font-size: 1rem;
+    }
+    .list-img{
+        margin-bottom: 20px;
+    }
+    .list-img img{
+        width: 60%;
+    }
     
+    
+    /**************** .last-box ******************/
+    .last-box h1{
+        font-size: 1.5rem;
+    }
+    .last-box h2{
+        font-size: 1rem;
+    }
+    .roller-box .roller-list ul li{
+        width: 250px;
+        height: 150px;
+    }
+
+    .roller-box .roller-list ul li img{
+        width: 100%;
+    }
 }

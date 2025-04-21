@@ -1,12 +1,19 @@
-html{
-    height: 100%;
-}
-body{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+html,body{
     height: 100%;
     margin: 0;
     padding: 0;
-    border: 0;
-    overflow: hidden;
+}
+body{
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar{
+    display: none;
 }
 header{
     position: fixed;
@@ -16,7 +23,6 @@ header{
     padding: 20px 0;
     display: flex;
     align-items: center;
-    /*border: 1px solid #333;*/
 }
 header > div, nav, .user-icon, .menu-icon{
     max-width: 1200px;
@@ -45,12 +51,11 @@ header > div, nav, .user-icon, .menu-icon{
     transition: top 0.8s ease-in-out;
 }
 .container{
-    width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow-y: hidden;
+    overflow:hidden;
 }
 .container:nth-child(1){background-color: rgb(207, 222, 255);}
 .container:nth-child(2){background-color: #f8f8f8;}
@@ -68,10 +73,12 @@ header > div, nav, .user-icon, .menu-icon{
 }
 .con-text h3{
     font-size: 2.5rem;
+    margin-top: 20px;
 }
 .con-text p{
     font-size: 1.4rem;
     line-height: 1.8;
+    margin-top: 20px;
 }
 .con-text button{
     border: none;
@@ -81,26 +88,33 @@ header > div, nav, .user-icon, .menu-icon{
     width: fit-content;
     margin: 0 auto;
     transition: all 0.3s;
+    margin-top: 20px;
 }
 .con-text button:hover{
     background-color: rgb(226, 228, 235);
 }
 
-/* listbox */
+/************** listbox **************/
 .scrollable-container{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
 }
 .scrollable-content{
-    height: 100%;
-    overflow-y: auto;
     width: 100%;
-    box-sizing: border-box;
+    height: 90vh; /* 또는 auto */
+    overflow-y: auto;
+    -ms-overflow-style:none;
+    padding: 40px 20px;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 40px 0;
+    box-sizing: border-box;
+}
+.scrollable-content::-webkit-scrollbar{
+    display: none;
 }
     
 .listbox ul{
@@ -113,27 +127,33 @@ header > div, nav, .user-icon, .menu-icon{
 .listbox li{
     background-color: #f8f8f8;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    height: 400px;
-    width: 100%;
+    height: 320px;
+    width: 90%;
     border-radius: 50px;
     margin-top: 50px;
     display: flex;
     align-items: center;
-    padding: 0px 40px;
+    justify-content: center;
+    padding: 0px 20px;
 }
 .list-text{
     height: 80%;
     flex: 1;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 .list-text h1{
-    font-size: 2.5;
-    margin-bottom: 80px;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
 }
 .list-text h2{
     font-size: 2rem;
     color: rgb(135, 171, 248);
+    margin-bottom: 10px;
 
+}
+.list-text p{
+    font-size: 1.1rem;
+    line-height: 1.5;
 }
 .list-img{
     background-color:  #e1e0e0;
@@ -142,14 +162,63 @@ header > div, nav, .user-icon, .menu-icon{
     border-radius: 25px;
 }
 .list-img img{
-    width: 70%;
+    width: 60%;
 }
+
 /*************** last-box *****************/
 .last-box{
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
-.last-imgbox ul{    
-    list-style-type: none;
+.last-box h1{
+    font-size: 2.5rem;
+}
+.last-box h2{
+    font-size: 2rem;
+}
+.roller-box{
+    display: flex;
+    overflow: hidden;
+    margin: 60px 0 0 0;
+}
+.roller-box .roller-list ul{
+    display: flex; 
+}
+.roller-box .roller-list ul li{
+    width: 589px; 
+	height: 276px; 
+    box-sizing: border-box; 
+    border-radius: 20px; 
+    margin: 0 16px; 
+    padding: 46px 31px; 
+    display: flex; 
+    align-items: center; 
+    flex-shrink: 0; 
+}
+
+.roller-list.original{
+    animation: rollingleft1 90s linear infinite;
+}
+
+.roller-list.clone{
+    animation: rollingleft2 90s linear infinite;
+}
+
+@keyframes rollingleft1 {
+	0% { transform: translateX(0); }
+	50% { transform: translateX(-100%); }
+	50.01% { transform: translateX(100%); }
+	100% { transform: translateX(0); }
+}
+
+@keyframes rollingleft2 {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(-200%); }
+}
+
+
+/************* footer **************/
+footer{
     display: flex;
 }
